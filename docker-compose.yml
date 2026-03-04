@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # --- Databases ---
+  auth-db:
+    image: postgres:15-alpine
+    env_file: 
+      - .env
+    ports:
+      - "5434:5432"
+    networks:
+      - app-network
+
+  fleet-db:
+    image: mongo:6.0
+    env_file: 
+      - .env
+    ports:
+      - "27019:27017"
+    networks:
+      - app-network
+
+  # --- Backend Services ---
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8080:8080" # שמתי מספר קבוע למניעת תקלות ווינדוס
+    env_file: 
+      - .env
+    depends_on:
+      - auth-db
+    networks:
+      - app-network
+
+  fleet-service:
+    build: ./fleet-service
+    ports:
+      - "8082:8081" # שמתי מספר קבוע
+    env_file: 
+      - .env
+    depends_on:
+      - fleet-db
+    networks:
+      - app-network
+
+  # --- Frontend ---
+  frontend:
+    build: ./frontend-client
+    ports:
+      - "80:80"
+    depends_on:
+      - auth-service
+      - fleet-service
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

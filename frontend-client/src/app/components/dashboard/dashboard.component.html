@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Fleet Overview</mat-card-title>
+      <mat-card-subtitle>Welcome, {{ userRole }}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <h3>Current Fleet Status</h3>
+      <app-vehicle-list></app-vehicle-list>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

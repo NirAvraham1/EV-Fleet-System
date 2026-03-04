@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Add New Vehicle</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="vehicleForm" class="vehicle-form">
+    
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Vehicle Model</mat-label>
+      <input matInput formControlName="model" placeholder="e.g. Tesla Model 3">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>License Plate</mat-label>
+      <input matInput formControlName="licensePlate" placeholder="e.g. 12-345-67">
+    </mat-form-field>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Battery Level (%)</mat-label>
+        <input matInput type="number" formControlName="batteryLevel" min="0" max="100">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="AVAILABLE">Available</mat-option>
+          <mat-option value="IN_USE">In Use</mat-option>
+          <mat-option value="CHARGING">Charging</mat-option>
+          <mat-option value="MAINTENANCE">Maintenance</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Current Location</mat-label>
+      <input matInput formControlName="location" placeholder="e.g. Tel Aviv HQ">
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!vehicleForm.valid">
+    Add Vehicle
+  </button>
+</mat-dialog-actions>
