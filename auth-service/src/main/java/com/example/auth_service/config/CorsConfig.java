@@ -13,9 +13,9 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // מאפשר גישה לכל ה-API
-                        .allowedOrigins("http://localhost", "http://127.0.0.1", "http://localhost:4200") // הכתובות המותרות
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // הפעולות המותרות
+                registry.addMapping("/**") 
+                        .allowedOrigins("http://localhost", "http://127.0.0.1", "http://localhost:4200") 
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") 
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }

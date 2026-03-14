@@ -1,11 +1,8 @@
-// ייבוא ערכת הנושא שבחרת (Azure Blue)
 @import '@angular/material/prebuilt-themes/azure-blue.css';
 
-// הגדרות בסיסיות כדי שהמסך ייראה טוב
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #f5f5f5; }
 
-// תוספת קטנה כדי לוודא שמרכוז הלוגין יעבוד
 .login-container {
   display: flex;
   justify-content: center;

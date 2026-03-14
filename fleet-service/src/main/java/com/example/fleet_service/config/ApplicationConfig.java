@@ -13,8 +13,6 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        // טריק: במקום לחפש בדאטה-בייס, אנחנו מחזירים תמיד תשובה חיובית
-        // אם הטוקן תקין (החתימה שלו נבדקה כבר), אנחנו מאשרים את המשתמש
         return username -> new User(username, "password", Collections.emptyList());
     }
 }

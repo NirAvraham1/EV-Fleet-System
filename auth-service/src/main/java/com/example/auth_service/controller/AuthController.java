@@ -18,13 +18,13 @@ public class AuthController {
 
     private final AuthService authService;
 
-    // הרשמה: POST /api/auth/register
+    // POST /api/auth/register
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(authService.register(request));
     }
 
-    // התחברות: POST /api/auth/login
+    // POST /api/auth/login
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));

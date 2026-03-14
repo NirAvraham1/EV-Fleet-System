@@ -94,7 +94,6 @@ export class VehicleListComponent implements OnInit {
   }
   
   deleteVehicle(id: string) {
-    // חסימה: רק אדמין יכול למחוק
     if (!this.isAdmin) {
       alert('Access Denied: Only Admins can delete vehicles.');
       return;
@@ -108,7 +107,6 @@ export class VehicleListComponent implements OnInit {
   }
 
   toggleStatus(vehicle: Vehicle) {
-    // חסימה: רק אדמין יכול לשנות סטטוס
     if (!this.isAdmin) {
       alert('Access Denied: Only Admins can change vehicle status.');
       return;

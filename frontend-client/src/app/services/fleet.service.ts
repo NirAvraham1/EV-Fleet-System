@@ -13,7 +13,6 @@ export interface Vehicle {
   location: string;
 }
 
-// זה הממשק שהיה חסר לך
 export interface PageResponse<T> {
   content: T[];
   totalElements: number;
@@ -38,7 +37,6 @@ export class FleetService {
     });
   }
 
-  // הפונקציה המעודכנת שמקבלת עמוד וגודל
   getAllVehicles(page: number, size: number): Observable<PageResponse<Vehicle>> {
     let params = new HttpParams()
       .set('page', page.toString())

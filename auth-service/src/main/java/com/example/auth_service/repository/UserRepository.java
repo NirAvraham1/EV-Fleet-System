@@ -5,9 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    // מציאת משתמש לפי שם משתמש (עבור Login)
     Optional<User> findByUsername(String username);
     
-    // בדיקה אם משתמש קיים (עבור Register - שלא ניצור כפילויות)
     boolean existsByUsername(String username);
 }

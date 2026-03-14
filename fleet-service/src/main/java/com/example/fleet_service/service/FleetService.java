@@ -16,7 +16,6 @@ public class FleetService {
     private final VehicleRepository vehicleRepository;
     private final ChargingStationRepository stationRepository;
 
-    // שליפת כל המידע (עבור GET)
     public FleetStatusResponse getAllAssets() {
         List<Vehicle> vehicles = vehicleRepository.findAll();
         List<ChargingStation> stations = stationRepository.findAll();
@@ -27,12 +26,10 @@ public class FleetService {
                 .build();
     }
 
-    // הוספת רכב (עבור POST - Admin only)
     public Vehicle addVehicle(Vehicle vehicle) {
         return vehicleRepository.save(vehicle);
     }
 
-    // הוספת עמדת טעינה (עבור POST - Admin only)
     public ChargingStation addStation(ChargingStation station) {
         return stationRepository.save(station);
     }
